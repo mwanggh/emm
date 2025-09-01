@@ -1,3 +1,14 @@
-# Icon
+# Efficiency Mode Monitor
+Efficiency Mode Monitor is a simple tool that monitors specific application processes. If a process is detected running with Idle priority, the program will automatically adjust it to Normal priority to improve performance. This is especially useful for users experiencing browser lag when running in efficiency mode, as the tool helps alleviate such issues.
 
-<a href="https://www.flaticon.com/free-icons/launch" title="launch icons">Launch icons created by mynamepong - Flaticon</a>
+![screenshot](./res/screenshot.png)
+
+## Usage
+- Command-Line Mode: Run the PowerShell script `app.ps1`.
+- Graphical Interface Mode: Double-click the `app.exe` file to launch the application.
+
+## Source Code
+The source code is available in the `app.py` file for developers to review and modify.
+
+## Icon
+[Launch icons created by mynamepong - Flaticon](https://www.flaticon.com/free-icons/launch)
