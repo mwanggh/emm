@@ -1,0 +1,5 @@
+.venv/
+monitor_sc.txt
+*.spec
+dist/
+build/
