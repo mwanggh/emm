@@ -5,12 +5,21 @@ import threading
 import subprocess
 import ctypes
 import atexit
+import sys
+import os
 
 
 try:
     ctypes.windll.shcore.SetProcessDpiAwareness(1)
 except Exception:
     pass
+
+
+def get_resource_path(relative_path):
+    """获取资源文件的路径，无论是开发环境还是打包后"""
+    if hasattr(sys, '_MEIPASS'):  # PyInstaller 打包后的临时路径
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 
 def get_running_processes():
@@ -50,6 +59,7 @@ class EfficiencyApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Disable Efficiency Mode")
+        self.root.iconbitmap(get_resource_path("res/rocket.ico"))
         self.root.geometry("1200x800")
 
         self.closed_programs = []
@@ -229,3 +239,4 @@ if __name__ == "__main__":
     root.mainloop()
 
 # pyinstaller --onefile --noconsole --icon=res/rocket.ico app.py; Copy-Item .\dist\app.exe .\ -Force
+# pyinstaller --onefile --noconsole --icon=res/rocket.ico --add-data "res/rocket.ico;res" app.py; Copy-Item .\dist\app.exe .\ -Force
