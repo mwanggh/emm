@@ -50,7 +50,7 @@ while ($true) {{
             }}
         }}
     }}
-    Start-Sleep -Milliseconds 200
+    Start-Sleep -Milliseconds 400
 }}
 """
 
